@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Standup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ARRaycastManager m_raycastMangaer;
+    public GameObject m_prefCharacter;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (0 < Input.touchCount)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                List<ARRaycastHit> hitList = new List<ARRaycastHit>();
+                if (m_raycastMangaer.Raycast(touch.position, hitList, TrackableType.AllTypes))
+                {
+                    Pose hitPose = hitList[0].pose;
+                    Instantiate(m_prefCharacter, hitPose.position, hitPose.rotation);
+                }
+            }
+        }
     }
 }
