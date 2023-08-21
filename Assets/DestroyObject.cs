@@ -6,6 +6,7 @@ public class DestroyObject : MonoBehaviour
 {
 
     public int damage;
+    public ScoreManager scoreManager;
     private GameObject mato;
     private Hp hp;
 
@@ -22,6 +23,8 @@ public class DestroyObject : MonoBehaviour
         //ぶつかったオブジェクトのTagにBallという名前が書いてあったならば（条件）.
         if (other.CompareTag("Ball"))
         {
+            //スコア加算
+            scoreManager.AddScore();
 
             //HPクラスのDamage関数を呼び出す
             hp.Damage(damage);

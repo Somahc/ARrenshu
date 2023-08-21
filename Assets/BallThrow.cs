@@ -6,6 +6,7 @@ public class BallThrow : MonoBehaviour
 {
     public GameObject m_prefBall;
     public Transform m_transformCamera;
+    public ScoreManager scoreManager;
 
     void Update()
     {
@@ -14,6 +15,8 @@ public class BallThrow : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if(touch.phase == TouchPhase.Began)
             {
+                scoreManager.BallUsed();
+
                 Rigidbody rigidbodyBall = Instantiate(m_prefBall).GetComponent<Rigidbody>();
                 rigidbodyBall.transform.position = m_transformCamera.position;
                 rigidbodyBall.velocity = m_transformCamera.forward * 20f;
