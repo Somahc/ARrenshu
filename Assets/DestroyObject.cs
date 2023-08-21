@@ -8,13 +8,13 @@ public class DestroyObject : MonoBehaviour
     public int damage;
     public ScoreManager scoreManager;
     private GameObject mato;
-    private Hp hp;
+    //private Hp hp;
 
     // Start is called before the first frame update
     void Start()
     {
         mato = GameObject.Find("Matos");
-        hp = mato.GetComponent<Hp>();
+        //hp = mato.GetComponent<Hp>();
         //Destroy(gameObject);
     }
 
@@ -27,7 +27,10 @@ public class DestroyObject : MonoBehaviour
             scoreManager.AddScore();
 
             //HPクラスのDamage関数を呼び出す
-            hp.Damage(damage);
+            //hp.Damage(damage);
+
+            //ボールがぶつかったら自身を消す
+            Destroy(gameObject);
 
             //ぶつかってきたオブジェクトを破壊する.
             Destroy(other.gameObject);
