@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour { 
 
     public GameObject score_object = null;
+    public int used_ball_num = 0;
     public int score_num = 0;
 
 
@@ -22,10 +23,16 @@ public class ScoreManager : MonoBehaviour {
         // オブジェクトからTextコンポーネントを取得
         Text score_text = score_object.GetComponent<Text>();
         // テキストの表示を入れ替える
-        score_text.text = "使ったボールの数: " + score_num;
+        score_text.text = "使ったボールの数: " + used_ball_num +"\n当たった数: " +
+            score_num;
     }
 
     public void BallUsed()
+    {
+        used_ball_num++;
+    }
+
+    public void AddScore()
     {
         score_num++;
     }
