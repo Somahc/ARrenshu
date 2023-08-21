@@ -16,7 +16,7 @@ public class BallThrow : MonoBehaviour
             {
                 Rigidbody rigidbodyBall = Instantiate(m_prefBall).GetComponent<Rigidbody>();
                 rigidbodyBall.transform.position = m_transformCamera.position;
-                rigidbodyBall.velocity = m_transformCamera.forward * 10f;
+                rigidbodyBall.velocity = m_transformCamera.forward * 20f;
             }
         }
     }
