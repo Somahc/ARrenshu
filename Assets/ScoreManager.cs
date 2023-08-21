@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour { 
 
     public GameObject score_object = null;
-    public int used_ball_num = 0;
-    public int score_num = 0;
+    private int used_ball_num = 0;
+    private int score_num = 0;
 
 
 
