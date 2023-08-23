@@ -7,15 +7,23 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject menuPanel;
+    [SerializeField] GameObject GameoverMenuPanel;
 
     void Start()
     {
         menuPanel.SetActive(false);
+        GameoverMenuPanel.SetActive(false);
     }
 
     public void ShowMenu()
     {
         menuPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ShowGameoverMenu()
+    {
+        GameoverMenuPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 

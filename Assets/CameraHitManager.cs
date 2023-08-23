@@ -26,7 +26,7 @@ public class CameraHitManager : MonoBehaviour
             isGameover = true;
             if (uiManager != null)
             {
-                uiManager.ShowMenu();
+                uiManager.ShowGameoverMenu();
             }
             else
             {
