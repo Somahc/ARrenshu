@@ -7,13 +7,19 @@ public class BallThrow : MonoBehaviour
     public GameObject m_prefBall;
     public Transform m_transformCamera;
     public ScoreManager scoreManager;
+    TimerManager timerManager;
+
+    private void Start()
+    {
+        timerManager = FindObjectOfType<TimerManager>();
+    }
 
     void Update()
     {
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Began)
+            if(touch.phase == TouchPhase.Began && timerManager.GetIsFirstGameover)
             {
                 scoreManager.BallUsed();
 

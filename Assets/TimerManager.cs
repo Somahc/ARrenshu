@@ -11,17 +11,17 @@ public class TimerManager : MonoBehaviour
     // タイマー用テキスト
     [SerializeField] Text timerText;
 
-    private bool isFirstGameover;
+    private bool isFirstGameover = true;
 
     [SerializeField] private UIManager _uimanager;
 
     // 経過時間
     float time;
 
-    private void Start()
-    {
-        isFirstGameover = true;
-    }
+    //private void Start()
+    //{
+    //    isFirstGameover = true;
+    //}
 
     void Update()
     {
@@ -44,5 +44,10 @@ public class TimerManager : MonoBehaviour
             //timerTextを更新していく
             timerText.text = $"残り{remaining.ToString("D3")}秒";
         }
+    }
+
+    public bool GetIsFirstGameover
+    {
+        get { return isFirstGameover; }
     }
 }
