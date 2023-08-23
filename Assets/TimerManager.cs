@@ -11,8 +11,17 @@ public class TimerManager : MonoBehaviour
     // タイマー用テキスト
     [SerializeField] Text timerText;
 
+    private bool isFirstGameover;
+
+    [SerializeField] private UIManager _uimanager;
+
     // 経過時間
     float time;
+
+    private void Start()
+    {
+        isFirstGameover = true;
+    }
 
     void Update()
     {
@@ -24,6 +33,11 @@ public class TimerManager : MonoBehaviour
         if(remaining < 1)
         {
             timerText.text = "終了";
+            if (isFirstGameover)
+            {
+                _uimanager.ShowMenu();
+                isFirstGameover = false;
+            }
         }
         else
         {
