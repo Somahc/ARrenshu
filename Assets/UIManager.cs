@@ -16,17 +16,20 @@ public class UIManager : MonoBehaviour
     public void ShowMenu()
     {
         menuPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void SelectTitle()
     {
         menuPanel.SetActive(false);
+        Time.timeScale = 1f;
         SceneManager.LoadScene("TitleScene");
     }
 
     public void SelectRestart()
     {
         menuPanel.SetActive(false);
+        Time.timeScale = 1f;
         SceneManager.LoadScene("SampleScene");
     }
 

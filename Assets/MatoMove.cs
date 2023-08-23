@@ -23,7 +23,7 @@ public class MatoMove : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 0.1f);
 
         Vector3 p = new Vector3(0f, 0f, 0.1f);
-        Debug.Log(p);
+        //Debug.Log(p);
         transform.Translate(p);
     }
 }

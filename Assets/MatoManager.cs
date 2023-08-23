@@ -62,7 +62,7 @@ public class MatoManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        Debug.Log(time);
+        //Debug.Log(time);
 
         if(time > interval)
         {
